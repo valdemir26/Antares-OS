@@ -66,7 +66,7 @@ deb http://security.debian.org/debian-security/ trixie-security main non-free-fi
 EOF
 ```
 
-# _CutefishOS Repository_
+# _Pacotes par instalação minima_
 ```bash
 apt install --no-install-recommends \
 apt-transport-https build-essential btrfs-progs curl dbus-x11 dosfstools dkms rsync e2fsprogs exfatprogs \
