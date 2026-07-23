@@ -65,6 +65,12 @@ deb http://security.debian.org/debian-security/ trixie-security main non-free-fi
 EOF
 ```
 
+# _Iniciando o chroot_
+Configuração de ambiente para uso do chroot
+```bash
+apt update && apt dist-upgrade
+```
+
 # _Pacotes par instalação minima_
 ```bash
 apt install --no-install-recommends \
@@ -82,12 +88,6 @@ firmware-cavium firmware-intel-sound firmware-ipw2x00 firmware-ivtv firmware-iwl
 firmware-linux-free firmware-linux-nonfree firmware-misc-nonfree firmware-myricom firmware-netronome firmware-netxen \
 firmware-qcom-soc firmware-qlogic firmware-realtek firmware-samsung firmware-siano firmware-sof-signed firmware-ti-connectivity \
 irmware-zd1211
-```
-
-# _Iniciando o chroot_
-Configuração de ambiente para uso do chroot
-```bash
-apt update && apt dist-upgrade
 ```
 
 # _Configurar o locales_
