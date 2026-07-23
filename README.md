@@ -23,6 +23,7 @@ Como criar sua própria ISO com debootstrap:
 apt update && apt -y install \
     debootstrap \
     squashfs-tools \
+	build-essential \
     genisoimage \
 	yad
 ```
@@ -175,7 +176,6 @@ find -type f -print0 | xargs -0 md5sum | grep -v isolinux/boot.cat | tee md5sum.
 cd
 cd Distro
 ```
-
 
 
 
