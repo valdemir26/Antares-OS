@@ -73,9 +73,11 @@ apt update && apt dist-upgrade
 # _Pacotes par instalação minima_
 ```bash
 apt install --no-install-recommends \
-apt-transport-https build-essential btrfs-progs curl dbus-x11 dosfstools dkms rsync e2fsprogs exfatprogs \
-efibootmgr linux-image-amd64 live-boot live-config squashfs-tools genisoimage isolinux lsb-base grub-common \ grub2-common grub-efi-amd64 grub-efi-amd64-bin wget os-prober gnome-accessibility-themes gnome-disk-utility \ gnome-terminal gnome-shell gnome-shell-common gnome-shell-extension-prefs gnome-shell-extensions gedit \
-gnome-software gnome-session gnome-tweaks nautilus mutter gdm3 xinit gnome-control-center xdg-user-dirs-gtk \  file-roller yad calamares calamares-settings-debian
+apt-transport-https build-essential btrfs-progs curl dbus-x11 dosfstools dkms rsync e2fsprogs exfatprogs efibootmgr \
+linux-image-amd64 live-boot live-config squashfs-tools genisoimage isolinux lsb-base grub-common grub2-common \
+grub-efi-amd64 grub-efi-amd64-bin wget os-prober gnome-accessibility-themes gnome-disk-utility gnome-terminal \
+gnome-shell gnome-shell-common gnome-shell-extension-prefs gnome-shell-extensions gnome-software gnome-session \
+gnome-tweaks nautilus mutter gdm3 xinit gnome-control-center xdg-user-dirs-gtk gedit file-rolleryad calamares calamares-settings-debian
 ```
 
 # _Firmwares_
