@@ -23,7 +23,6 @@ Como criar sua própria ISO com debootstrap:
 apt update && apt -y install \
     debootstrap \
     squashfs-tools \
-	build-essential \
     genisoimage \
 	yad
 ```
