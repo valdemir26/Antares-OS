@@ -65,8 +65,7 @@ deb http://security.debian.org/debian-security/ trixie-security main non-free-fi
 EOF
 ```
 
-# _Iniciando o chroot_
-Configuração de ambiente para uso do chroot
+# _Atualiza a lista de pacotes_
 ```bash
 apt update && apt dist-upgrade
 ```
