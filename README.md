@@ -42,7 +42,7 @@ sudo debootstrap \
     trixie \
     $HOME/Distro/chroot \
     http://deb.debian.org/debian/
-    ```    
+ ```    
 
  # _Iniciando o chroot_
 Configuração de ambiente para uso do chroot
