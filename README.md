@@ -177,6 +177,8 @@ cd
 cd Distro
 ```
 
+Se você conseguir chegar até aqui então falta muito pouco, este final de semana eu vou concluir o passo a passo.
+
 
 
 # Excluir diretório
