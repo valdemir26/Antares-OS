@@ -24,7 +24,6 @@ apt update && apt -y install \
     debootstrap \
     squashfs-tools \
     genisoimage \
-	yad
 ```
 
 # _Criando a jaula do sistema_
