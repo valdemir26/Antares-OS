@@ -44,7 +44,7 @@ sudo debootstrap \
     http://deb.debian.org/debian/
     ```    
 
-    # _Iniciando o chroot_
+ # _Iniciando o chroot_
 Configuração de ambiente para uso do chroot
 ```bash
 sudo cp /etc/resolv.conf chroot/etc/
