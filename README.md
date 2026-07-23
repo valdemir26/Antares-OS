@@ -3,10 +3,6 @@
   * Author: José Valdemir de Melo
   ======================================================== -->  
 
-<p align="center">
-<img src="assets/img/antares.png" class="img-fluid" alt="">
-</p>
-
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/valdemir26/valdemir26.github.io/blob/main/LICENSE)
 <img src="https://komarev.com/ghpvc/?username=valdemir26&color=yellow" alt="Profile views" />
 
