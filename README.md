@@ -92,6 +92,15 @@ firmware-myricom firmware-netronome firmware-netxen firmware-qcom-soc firmware-q
 firmware-samsung firmware-siano firmware-sof-signed firmware-ti-connectivity
 ```
 
+# Criando o usuário live do sistema
+```bash 
+cat > $HOME/Distro/chroot/etc/live/config.conf.d/antares.conf << 'EOF'
+LIVE_USERNAME="antares"
+LIVE_USER_FULLNAME="Antares Live User"
+EOF
+```
+
+
 # _Configurar o locales_
 ```bash
 dpkg-reconfigure locales
@@ -148,14 +157,6 @@ sudo cp $HOME/Distro/chroot/boot/initrd.img-* $HOME/Distro/antares/live/initrd.l
 ```bash   
 sudo rm -r $HOME/Distro/chroot/vmlinuz && sudo rm -r $HOME/Distro/chroot/vmlinuz.old
 sudo rm -r $HOME/Distro/chroot/initrd.img && sudo rm -r $HOME/Distro/chroot/initrd.img.old
-```
-
-# Criando o usuário live do sistema
-```bash 
-cat > $HOME/Distro/chroot/etc/live/config.conf.d/antares.conf << 'EOF'
-LIVE_USERNAME="antares"
-LIVE_USER_FULLNAME="Antares Live User"
-EOF
 ```
 
 # Squashfs
