@@ -65,7 +65,7 @@ deb http://security.debian.org/debian-security/ trixie-security main non-free-fi
 EOF
 ```
 
-# _Atualiza a lista de pacotes_
+# _Atualizar a lista de pacotes_
 ```bash
 apt update && apt dist-upgrade
 ```
