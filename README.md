@@ -141,8 +141,8 @@ cd Distro
 # _Copiar vmlinuz e initrd.img_
 ```bash   
 mkdir -p $HOME/Distro/antares/live
-cp $HOME/Distro/chroot/boot/vmlinuz-* $HOME/Distro/antares/live/vmlinuz
-cp $HOME/Distro/chroot/boot/initrd.img-* $HOME/Distro/antares/live/initrd.lz
+sudo cp $HOME/Distro/chroot/boot/vmlinuz-* $HOME/Distro/antares/live/vmlinuz
+sudo cp $HOME/Distro/chroot/boot/initrd.img-* $HOME/Distro/antares/live/initrd.lz
 ```
 # _Apagar vmlinuz.old e initrd.img.old_
 ```bash   
