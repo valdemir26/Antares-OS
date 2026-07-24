@@ -33,7 +33,7 @@ mkdir -p $HOME/Distro/{chroot,antares}
 cd Distro
 ```
 
-# _Instalanso o sistema base com debootstrap_
+# _Instalando o sistema base com debootstrap_
 ```bash
 sudo debootstrap \
     --arch=amd64 \
