@@ -98,6 +98,14 @@ firmware-myricom firmware-netronome firmware-netxen firmware-qcom-soc firmware-q
 firmware-samsung firmware-siano firmware-sof-signed firmware-ti-connectivity
 ```
 
+## _Visual Studio Code_
+Instalando pacotes externos
+```bash
+wget https://vscode.download.prss.microsoft.com/dbazure/download/stable/1b6a188127eeaf9194f945eb6eb89a657e93c54c/code_1.130.0-1784734578_amd64.deb -P $HOME/Distro/files
+cd $HOME/Distro/files
+dpkg -i *.deb && apt -f install
+```
+
 ## _Limpar cache do APT e finalizar o chroot_
 Remove os arquivos de configuração usandos no chroot
 ```bash    
