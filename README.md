@@ -322,6 +322,12 @@ terminal-font: "Unifont Regular 16"
 EOF
 ```
 
+```bash   
+cd $HOME/Distro/files
+wget https://master.dl.sourceforge.net/project/community-linux-64/comlin64/grub-data/data/fonts/unicode.pf2?viasf=1&fid=e389d81fa644fdfe&e=1785084071&st=etMOvF2PuQZ4TfE3TKZ7-g
+cp $HOME/Distro/chroot/boot/grub/
+```
+
 ## _Copiar vmlinuz e initrd.img_
 ```bash   
 mkdir -p $HOME/Distro/antares/live
