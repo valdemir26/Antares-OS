@@ -19,6 +19,15 @@
 
 
 # <p align="center">Crie seu linux do zero com debootstrap
+
+## _Como funciona_
+Optamos por utilizar um processo manual de customização do Linux, utilizando o squashfs, genisoimage e chroot, é simples, você usa a própria distribuição instalada como base, sem aplicativos extras, que as vezes é incompatível dependendo da distribuição.
+
+## _Preparando o ambiente_
+### Para criar o ambiente necessário para customização
+Para criar o ambiente necessário para customização
+Computador (Desktop ou Notebook) com Linux instalado e com suporte para o "squashfs" no kernel, desde 2006 o linux já possui suporte para o Squashfs no kernel, porém sugerimos utilizar a versão mais atual disponível.
+
 Como criar sua própria ISO com debootstrap, use o comando para certificar que os pacotes estão presentes em seu sistema
 ```bash
 sudo apt update && apt -y install \
@@ -28,6 +37,9 @@ sudo apt update && apt -y install \
 ```
 
 ## _Criando a jaula do sistema_
+Antes de começarmos a customizar o nosso Linux OS, devemos criar o diretório e os subdiretórios que serão nossa área de trabalho
+Para criar o diretório e os subdiretórios, podemos usar o navegador de aquivos ou simplesmente fazer isso no terminal como decrito logo abaixo
+Depois que o diretórios e os subdiretórios estiverem criados, é só seguir o passo a passo
 Agora vamos criar o diretório que irão conter os arquivos nescessários para fazer o chroot
 ```bash
 mkdir -p $HOME/Distro/{chroot,antares/{EFI/boot,boot/grub/theme,isolinux,live},files}
