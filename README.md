@@ -103,7 +103,7 @@ calamares-settings-debian
 ## _Firmwares_
 Instalar os drivers firmware-linux-free e firmware-linux-nonfree, alguns firmware-nonfree é nescessário aceitar os termos para instalação do pacote
 ```bash
-apt install \
+apt install -y \
 firmware-amd-graphics firmware-ast firmware-ath9k-htc firmware-atheros firmware-bnx2 firmware-bnx2x \
 firmware-brcm80211 firmware-cavium firmware-intel-sound firmware-ipw2x00 firmware-ivtv firmware-iwlwifi \
 firmware-libertas firmware-linux firmware-linux-free firmware-linux-nonfree firmware-misc-nonfree \
