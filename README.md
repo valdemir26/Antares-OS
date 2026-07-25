@@ -138,16 +138,6 @@ EOF
 sudo cp $HOME/Distro/files/antares.conf $HOME/Distro/chroot/etc/live/config.conf.d/antares.conf
 ```
 
-## _Squashfs_
-Regerando o arquivo filesystem.manifest e filesystem.squashfs
-```bash
-chmod +w antares/live/filesystem.manifest
-sudo chroot chroot dpkg-query -f '${binary:Package}\n' -W > antares/live/filesystem.manifest
-sudo cp antares/live/filesystem.manifest antares/live/filesystem.manifest
-sudo rm antares/live/filesystem.squashfs
-sudo mksquashfs chroot antares/live/filesystem.squashfs -comp xz
-```
-
 ## _README.diskdefines_
 Cria um rótulo para a imagem ISO
 ```bash
