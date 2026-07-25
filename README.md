@@ -321,23 +321,26 @@ terminal-font: "Unifont Regular 16"
 }
 EOF
 ```
+## _Copiar boot.cat e isolinux.bin_
+```bash
+cp $HOME/Distro/chroot/usr/lib/ISOLINUX/isolinux.bin $HOME/Distro/antares/isolinux/
+cp $HOME/Distro/chroot/usr/lib/ISOLINUX/isolinux.bin $HOME/Distro/antares/isolinux/
+```
 
-```bash   
-cd $HOME/Distro/files
-wget https://master.dl.sourceforge.net/project/community-linux-64/comlin64/grub-data/data/fonts/unicode.pf2?viasf=1&fid=e389d81fa644fdfe&e=1785084071&st=etMOvF2PuQZ4TfE3TKZ7-g
-cp $HOME/Distro/chroot/boot/grub/
+## _Copiar fonte unicode.pf2_
+```bash
+cp $HOME/Distro/chroot/boot/grub/unicode.pf2 $HOME/Distro/antares/boot/grub/
 ```
 
 ## _Copiar vmlinuz e initrd.img_
 ```bash   
-mkdir -p $HOME/Distro/antares/live
-sudo cp $HOME/Distro/chroot/boot/vmlinuz-* $HOME/Distro/antares/live/vmlinuz
-sudo cp $HOME/Distro/chroot/boot/initrd.img-* $HOME/Distro/antares/live/initrd.lz
+cp $HOME/Distro/chroot/boot/vmlinuz-* $HOME/Distro/antares/live/vmlinuz
+cp $HOME/Distro/chroot/boot/initrd.img-* $HOME/Distro/antares/live/initrd.lz
 ```
 # _Apagar vmlinuz.old e initrd.img.old_
 ```bash   
-sudo rm -r $HOME/Distro/chroot/vmlinuz && sudo rm -r $HOME/Distro/chroot/vmlinuz.old
-sudo rm -r $HOME/Distro/chroot/initrd.img && sudo rm -r $HOME/Distro/chroot/initrd.img.old
+rm -r $HOME/Distro/chroot/vmlinuz && sudo rm -r $HOME/Distro/chroot/vmlinuz.old
+rm -r $HOME/Distro/chroot/initrd.img && sudo rm -r $HOME/Distro/chroot/initrd.img.old
 ```
 
 # <p align="center">Squashfs
