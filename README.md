@@ -141,7 +141,18 @@ sudo cp $HOME/Distro/files/antares.conf $HOME/Distro/chroot/etc/live/config.conf
 ## _README.diskdefines_
 Cria um rótulo para a imagem ISO
 ```bash
-
+cat > $HOME/Distro/files/README.diskdefines << 'EOF'
+#define DISKNAME   AntaresOS
+#define TYPE       binary
+#define TYPEbinary 1
+#define ARCH       amd64
+#define ARCHamd64  1
+#define DISKNUM    1
+#define DISKNUM1   1
+#define TOTALNUM   0
+#define TOTALNUM0  1
+EOF
+sudo cp $HOME/Distro/files/README.diskdefines $HOME/Distro/chroot/antares/README.diskdefines
 ```
 
 ## Arquivos de boot do sistema
