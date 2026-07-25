@@ -30,7 +30,7 @@ sudo apt update && apt -y install \
 ## _Criando a jaula do sistema_
 Agora vamos criar o diretório que irão conter os arquivos nescessários para fazer o chroot
 ```bash
-mkdir -p $HOME/Distro/{chroot,antares/{EFI/boot,boot/grub/live,isolinux,live},files}
+mkdir -p $HOME/Distro/{chroot,antares/{EFI/boot,boot/grub/live,isolinux,theme},files}
 cd Distro
 ```
 
