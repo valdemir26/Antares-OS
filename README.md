@@ -185,6 +185,7 @@ cp $HOME/Distro/files/bootx64.efi $HOME/Distro/antares/EFI/boot/
 cp $HOME/Distro/files/bootx64.efi $HOME/Distro/antares/
 cp $HOME/Distro/antares/boot/grub/x86_64-efi/monolithic/grubx64.efi $HOME/Distro/antares/EFI/boot/
 cp $HOME/Distro/antares/boot/grub/x86_64-efi/monolithic/grubx64.efi $HOME/Distro/antares/
+cp $HOME/Distro/antares/efi.img $HOME/Distro/antares/boot/grub
 ```
 
 # <p align="center">Arquivos de arranque do sistema</p>
