@@ -184,7 +184,7 @@ Excluir diretório de customização
 ```bash
 sudo rm -r Distro
 ```
-# Desenvolvedor
+# <p align="center">Desenvolvedor
   <footer id="footer">
     <div class="container">      
       <h5 class="font-italic">
