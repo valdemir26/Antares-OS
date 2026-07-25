@@ -158,7 +158,7 @@ EOF
 # <p align="center">Grub</p>
 Precisamos agora copiar os arquivos necessários de inicialização para BIOS Legacy para o diretório do LiveCD
 ```bash
-cp -r /usr/lib/grub/x86_64-efi/* "$HOME/Distro/antares/boot/grub/x86_64-efi/"
+sudo cp -r $HOME/Distro/chroot/usr/lib/grub/x86_64-efi/* "$HOME/Distro/antares/boot/grub/x86_64-efi/"
 ```
 
 Vamos criar uma imagem inicializável para o GRUB EFI
