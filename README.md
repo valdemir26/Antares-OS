@@ -100,14 +100,6 @@ gnome-tweaks gnome-terminal nautilus mutter gdm3 xinit gnome-control-center xdg-
 calamares-settings-debian
 ```
 
-## _Navegador google-chrome-stable_
-Instalando pacote externo
-```bash
-cd $HOME/Distro/files
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P $HOME/Distro/files
-dpkg -i *.deb && apt -f install
-```
-
 ## _Firmwares_
 Instalar os drivers firmware-linux-free e firmware-linux-nonfree, alguns firmware-nonfree é nescessário aceitar os termos para instalação do pacote
 ```bash
