@@ -171,8 +171,8 @@ grub-mkstandalone \
     "boot/grub/grub.cfg=$HOME/Distro/files/grub.cfg"
 cp $HOME/Distro/files/bootx64.efi $HOME/Distro/antares/EFI/boot/
 cp $HOME/Distro/files/bootx64.efi $HOME/Distro/antares/
-cp $HOME/Distro/antares/boot/grub/monlithic/grubx64.efi $HOME/Distro/antares/EFI/boot/
-cp $HOME/Distro/antares/boot/grub/monlithic/grubx64.efi $HOME/Distro/antares/
+cp $HOME/Distro/antares/boot/grub/monolithic/grubx64.efi $HOME/Distro/antares/EFI/boot/
+cp $HOME/Distro/antares/boot/grub/monolithic/grubx64.efi $HOME/Distro/antares/
 ```
 
 Agora, criaremos uma imagem de disco de inicialização FAT16 UEFI contendo o carregador de inicialização EFI
