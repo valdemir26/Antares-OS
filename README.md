@@ -21,7 +21,7 @@
 # <p align="center">Crie seu linux do zero com debootstrap
 Como criar sua própria ISO com debootstrap, use o comando para certificar que os pacotes estão presentes em seu sistema
 ```bash
-apt update && apt -y install \
+sudo apt update && apt -y install \
     debootstrap \
     squashfs-tools \
     genisoimage \
