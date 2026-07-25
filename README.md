@@ -18,7 +18,7 @@
 [![Ashutosh's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=valdemir26&bg_color=0d1117&color=fff&line=0563bb&point=272829&area=true&hide_border=true)](https://github.com/ashutosh00710/github-readme-activity-graph)
 
 # <p align="center">Crie seu linux do zero com debootstrap
-Como criar sua própria ISO com debootstrap
+Como criar sua própria ISO com debootstrap, use o comando para certificar que os pacotes estão presentes em seu sistema
 ```bash
 apt update && apt -y install \
     debootstrap \
@@ -26,14 +26,17 @@ apt update && apt -y install \
     genisoimage \
 ```
 
-## <p align="center">_Criando a jaula do sistema_
+## _Criando a jaula do sistema_
 Agora vamos criar o diretório que irão conter os arquivos nescessários para fazer o chroot
 ```bash
 mkdir -p $HOME/Distro/{chroot,antares/{EFI/boot,boot/grub/live,isolinux,live},files}
 cd Distro
 ```
 
-## <p align="center">_Instalando o sistema base com debootstrap_
+## _Instala o sistema base com debootstrap_
+A ferramenta debootstrap irá selecionar os pacotes nescessários da base so sistema escolhido para chroot, é nescessário que voçẽ instale a chave gpg do sistema escolhido
+### Exemplo 
+debian-archive-keyring
 ```bash
 sudo debootstrap \
     --arch=amd64 \
@@ -43,8 +46,8 @@ sudo debootstrap \
     http://deb.debian.org/debian/
  ```    
 
- ## <p align="center">_Iniciando o chroot_
-Configuração de ambiente para uso do chroot
+ ## _Iniciando o chroot_
+Copia os arquivos /resolv.conf /hosts da maquina local e monta /dev /proc /sys para configuração de ambiente para uso do chroot
 ```bash
 sudo cp /etc/resolv.conf chroot/etc/
 sudo cp /etc/hosts chroot/etc/
@@ -54,7 +57,7 @@ sudo mount --bind /sys chroot/sys
 sudo chroot chroot
 ```
 
-## <p align="center">_Adicionando repositório Debian_
+## _Adicionando repositório Debian_
 Source.list
 ```bash
 cat > /etc/apt/sources.list << 'EOF'
@@ -65,12 +68,13 @@ deb http://security.debian.org/debian-security/ trixie-security main non-free-fi
 EOF
 ```
 
-## <p align="center">_Atualizar a lista de pacotes_
+## _Atualizar a lista de pacotes_
+Carrega a lista de pacotes para serem atualizados ou instalados
 ```bash
 apt update && apt dist-upgrade
 ```
 
-## <p align="center">_Pacotes para instalação minima_
+## _Pacotes para instalação minima_
 ```bash
 apt install --no-install-recommends \
 apt-transport-https build-essential btrfs-progs curl dbus-x11 dosfstools dkms rsync e2fsprogs exfatprogs \
@@ -81,8 +85,8 @@ gnome-software gnome-session gnome-tweaks nautilus mutter gdm3 xinit gnome-contr
 gedit file-roller yad calamares calamares-settings-debian
 ```
 
-## <p align="center">_Firmwares_
-Instalar os drivers firmware-linux-nonfree
+## _Firmwares_
+Instalar os drivers firmware-linux-free e firmware-linux-nonfree
 ```bash
 apt install \
 firmware-amd-graphics firmware-ast firmware-ath9k-htc firmware-atheros firmware-bnx2 firmware-bnx2x \
@@ -92,32 +96,31 @@ firmware-myricom firmware-netronome firmware-netxen firmware-qcom-soc firmware-q
 firmware-samsung firmware-siano firmware-sof-signed firmware-ti-connectivity
 ```
 
-## <p align="center">_Configurar o locales_
+## _Configurar o locales e ajustar a timezone_
 ```bash
 dpkg-reconfigure locales
-```
-## <p align="center">_Agora, vamos ajustar o timezone_
-```bash
 rm /etc/localtime
 ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 ```
 
-# _Limpar cache do APT e finalizar o chroot_
+## _Limpar cache do APT e finalizar o chroot_
+Remove os arquivos de configuração usandos no chroot
 ```bash    
-apt autoclean
 rm -rf /tmp/* ~/.bash.history
 rm /etc/resolv.conf
 rm /etc/hosts
 exit
 ```
 
-# _Desmontar o ambiente de customização_
+## _Desmontar o ambiente de customização_
+Desmonta o /dev /proc /sys que também foram montados no chroot
 ```bash   
 sudo umount -lf chroot/dev
 sudo umount -lf chroot/proc
 sudo umount -lf chroot/sys
 ```
-# Criando o usuário live do sistema
+## Criando o usuário live do sistema
+Este é o usuário padrão do sistema live
 ```bash 
 cat > $HOME/Distro/files/antares.conf << 'EOF'
 LIVE_USERNAME="antares"
@@ -126,7 +129,7 @@ EOF
 sudo cp $HOME/Distro/files/antares.conf $HOME/Distro/chroot/etc/live/config.conf.d/antares.conf
 ```
 
-# _Squashfs_
+## _Squashfs_
 Regerando o arquivo filesystem.manifest e filesystem.squashfs
 ```bash
 chmod +w antares/live/filesystem.manifest
@@ -136,8 +139,8 @@ sudo rm antares/live/filesystem.squashfs
 sudo mksquashfs chroot antares/live/filesystem.squashfs -comp xz
 ```
 
-# _MD5sum_
-Criar o MD5sum
+## _README.diskdefines_
+Cria um rótulo para a imagem ISO
 ```bash
 cd antares
 sudo rm md5sum.txt
@@ -146,7 +149,7 @@ cd
 cd Distro
 ```
 
-# _Copiar vmlinuz e initrd.img_
+## _Copiar vmlinuz e initrd.img_
 ```bash   
 mkdir -p $HOME/Distro/antares/live
 sudo cp $HOME/Distro/chroot/boot/vmlinuz-* $HOME/Distro/antares/live/vmlinuz
