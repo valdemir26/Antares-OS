@@ -323,8 +323,12 @@ EOF
 ```
 ## _Copiar boot.cat e isolinux.bin_
 ```bash
-cp $HOME/Distro/chroot/usr/lib/ISOLINUX/isolinux.bin $HOME/Distro/antares/isolinux/
-cp $HOME/Distro/chroot/usr/lib/grub/x86_64-efi/boot.mod $HOME/Distro/antares/isolinux/boot.cat
+cp $HOME/Distro/chroot/usr/share/desktop-base/debian-logos/logo-text-version-256.png $HOME/Distro/antares/isolinux/splash.png
+```
+
+## _Copiar fonte unicode.pf2_
+```bash
+cp $HOME/Distro/chroot/boot/grub/unicode.pf2 $HOME/Distro/antares/boot/grub/
 ```
 
 ## _Copiar fonte unicode.pf2_
