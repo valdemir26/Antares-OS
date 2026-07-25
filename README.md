@@ -103,8 +103,8 @@ calamares-settings-debian
 ## _Navegador google-chrome-stable_
 Instalando pacote externo
 ```bash
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P $HOME/Distro/files
 cd $HOME/Distro/files
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P $HOME/Distro/files
 dpkg -i *.deb && apt -f install
 ```
 
