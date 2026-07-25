@@ -246,7 +246,7 @@ Criar o theme.txt
 source /boot/grub/grub.cfg
 ```
 
-Criar o config.cfg
+Criar o theme.txt
 ```bash
 
 ```
