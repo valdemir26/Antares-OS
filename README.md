@@ -223,8 +223,9 @@ play 960 440 1 0 4 440 1
 EOF
 ```
 
-Criar o config.cfg
+Criar o grub.cfg
 ```bash
+cat > $HOME/Distro/antares/boot/grub/grub.cfg << 'EOF'
 source /boot/grub/config.cfg
 
 # Live boot
@@ -236,20 +237,36 @@ menuentry "Antares OS (amd64 fail-safe mode)" {
 	linux	/live/vmlinuz boot=live components memtest noapic noapm nodma nomce nolapic nosmp nosplash vga=788
 	initrd	/live/initrd.lz
 }
+EOF
 ```
 
 Criar o loopback.cfg
 ```bash
+cat > $HOME/Distro/antares/boot/grub/loopback.cfg << 'EOF'
 source /boot/grub/grub.cfg
+EOF
+```
+
+Criar o theme.cfg
+```bash
+cat > $HOME/Distro/antares/boot/grub/theme.cfg << 'EOF'
+set color_normal=light-gray/black
+set color_highlight=white/dark-gray
+
+if [ -e /isolinux/splash.png ]; then
+    set theme=/boot/grub/antares/theme.txt
+elif [ -e /boot/grub/splash.png ]; then
+    set theme=/boot/grub/antares/theme.txt
+else
+    set menu_color_normal=cyan/blue
+    set menu_color_highlight=white/blue
+fi
+EOF
 ```
 
 Criar o theme.txt
 ```bash
-source /boot/grub/grub.cfg
-```
-
-Criar o theme.txt
-```bash
+cat > $HOME/Distro/antares/boot/grub/theme.txt << 'EOF'
 desktop-image: "../splash.png"
 title-color: "#ffffff"
 title-font: "Unifont Regular 16"
@@ -301,6 +318,7 @@ terminal-font: "Unifont Regular 16"
         border_color = "#ffffff"
         text = "@TIMEOUT_NOTIFICATION_LONG@"
 }
+EOF
 ```
 
 ## _Copiar vmlinuz e initrd.img_
