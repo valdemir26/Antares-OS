@@ -49,7 +49,7 @@ cd Distro
 ## _Instala o sistema base com debootstrap_
 A ferramenta debootstrap irá selecionar os pacotes nescessários da base so sistema escolhido para chroot, é nescessário instalar a chave gpg do sistema escolhido
 ### Exemplo 
-debian-archive-keyring \
+debian-archive-keyring
 http://deb.debian.org/debian/pool/main/d/debian-archive-keyring/
 ```bash
 sudo debootstrap \
