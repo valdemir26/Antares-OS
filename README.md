@@ -26,14 +26,14 @@ apt update && apt -y install \
     genisoimage \
 ```
 
-## _Criando a jaula do sistema_
+## <p align="center">_Criando a jaula do sistema_
 Agora vamos criar o diretório que irão conter os arquivos nescessários para fazer o chroot
 ```bash
 mkdir -p $HOME/Distro/{chroot,antares/{EFI/boot,boot/grub/live,isolinux,live},files}
 cd Distro
 ```
 
-# _Instalando o sistema base com debootstrap_
+### _Instalando o sistema base com debootstrap_
 ```bash
 sudo debootstrap \
     --arch=amd64 \
@@ -43,7 +43,7 @@ sudo debootstrap \
     http://deb.debian.org/debian/
  ```    
 
- # _Iniciando o chroot_
+ ### _Iniciando o chroot_
 Configuração de ambiente para uso do chroot
 ```bash
 sudo cp /etc/resolv.conf chroot/etc/
@@ -54,7 +54,7 @@ sudo mount --bind /sys chroot/sys
 sudo chroot chroot
 ```
 
-# _Adicionando repositório Debian_
+### _Adicionando repositório Debian_
 Source.list
 ```bash
 cat > /etc/apt/sources.list << 'EOF'
@@ -65,12 +65,12 @@ deb http://security.debian.org/debian-security/ trixie-security main non-free-fi
 EOF
 ```
 
-# _Atualizar a lista de pacotes_
+### _Atualizar a lista de pacotes_
 ```bash
 apt update && apt dist-upgrade
 ```
 
-# _Pacotes par instalação minima_
+### _Pacotes para instalação minima_
 ```bash
 apt install --no-install-recommends \
 apt-transport-https build-essential btrfs-progs curl dbus-x11 dosfstools dkms rsync e2fsprogs exfatprogs \
@@ -81,7 +81,7 @@ gnome-software gnome-session gnome-tweaks nautilus mutter gdm3 xinit gnome-contr
 gedit file-roller yad calamares calamares-settings-debian
 ```
 
-# _Firmwares_
+### _Firmwares_
 Instalar os drivers firmware-linux-nonfree
 ```bash
 apt install \
