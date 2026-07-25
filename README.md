@@ -188,42 +188,65 @@ cd Distro
 ```
 
 # <p align="center">Isolinux</p>
-Criar o live.cfg
+Criar o config.cfg
 ```bash
+set default=0
 
-```
+if [ x$feature_default_font_path = xy ] ; then
+    font=unicode
+else
+    font=$prefix/unicode.pf2
+fi
 
-Criar o stdmenu.cfg
-```bash
+if loadfont $font ; then
+    set gfxmode=800x600
+    set gfxpayload=keep
+    insmod efi_gop
+    insmod efi_uga
+    insmod video_bochs
+    insmod video_cirrus
+else
+    set gfxmode=auto
+    insmod all_video
+fi
 
-```
+insmod gfxterm
+insmod png
 
-Criar o utilities.cfg
-```bash
+source /boot/grub/theme.cfg
 
-```
+terminal_output gfxterm
 
-Criar o theme.txt
-```bash
-
+insmod play
+play 960 440 1 0 4 440 1
 ```
 
 Criar o config.cfg
 ```bash
+source /boot/grub/config.cfg
 
-```
-
-Criar o grub.cfg
-```bash
-
-```
-
-Criar o theme.cfg
-```bash
-
+# Live boot
+menuentry "Antares OS (amd64)" --hotkey=l {
+	linux	/live/vmlinuz boot=live locales=pt_BR.UTF-8 keyboard-layouts=pt_BR username=antares hostname=antares autologin findiso=${iso_path}
+	initrd	/live/initrd.lz
+}
+menuentry "Antares OS (amd64 fail-safe mode)" {
+	linux	/live/vmlinuz boot=live components memtest noapic noapm nodma nomce nolapic nosmp nosplash vga=788
+	initrd	/live/initrd.lz
+}
 ```
 
 Criar o loopback.cfg
+```bash
+source /boot/grub/grub.cfg
+```
+
+Criar o theme.txt
+```bash
+source /boot/grub/grub.cfg
+```
+
+Criar o config.cfg
 ```bash
 
 ```
