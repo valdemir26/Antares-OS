@@ -190,6 +190,7 @@ cd Distro
 # <p align="center">Isolinux</p>
 Criar o config.cfg
 ```bash
+cat > $HOME/Distro/antares/boot/grub/config.cfg << 'EOF'
 set default=0
 
 if [ x$feature_default_font_path = xy ] ; then
@@ -219,6 +220,7 @@ terminal_output gfxterm
 
 insmod play
 play 960 440 1 0 4 440 1
+EOF
 ```
 
 Criar o config.cfg
