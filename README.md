@@ -112,7 +112,7 @@ firmware-samsung firmware-siano firmware-sof-signed firmware-ti-connectivity
 ```
 
 ## _Navegador google-chrome-stable_
-Instalando pacotes externos
+Instalando pacote externo
 ```bash
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P $HOME/Distro/files
 cd $HOME/Distro/files
