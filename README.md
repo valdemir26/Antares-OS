@@ -171,7 +171,6 @@ grub-mkstandalone \
     "boot/grub/grub.cfg=$HOME/Distro/files/grub.cfg"
 cp $HOME/Distro/files/bootx64.efi $HOME/Distro/antares/EFI/boot/
 cp $HOME/Distro/files/bootx64.efi $HOME/Distro/antares/
-
 cp $HOME/Distro/antares/boot/grub/monlithic/grubx64.efi $HOME/Distro/antares/EFI/boot/
 cp $HOME/Distro/antares/boot/grub/monlithic/grubx64.efi $HOME/Distro/antares/
 ```
