@@ -189,7 +189,7 @@ cp $HOME/Distro/antares/boot/grub/x86_64-efi/monolithic/grubx64.efi $HOME/Distro
 cp $HOME/Distro/antares/efi.img $HOME/Distro/antares/boot/grub
 ```
 
-# <p align="center">Arquivos de arranque do sistema *grub*</p>
+# <p align="center">Arquivos de arranque do sistema</p>
 Criar o config.cfg
 ```bash
 cat > $HOME/Distro/antares/boot/grub/config.cfg << 'EOF'
@@ -322,22 +322,26 @@ terminal-font: "Unifont Regular 16"
 }
 EOF
 ```
-## _Copiar boot.cat e isolinux.bin_
+# <p align="center">Isolinux</p>
+```bash
+cp $HOME/Distro/chroot/usr/share/desktop-base/debian-logos/logo-text-version-256.png $HOME/Distro/antares/isolinux/splash.png
+```
+_Copiar boot.cat e isolinux.bin_
 ```bash
 cp $HOME/Distro/chroot/usr/share/desktop-base/debian-logos/logo-text-version-256.png $HOME/Distro/antares/isolinux/splash.png
 ```
 
-## _Copiar fonte unicode.pf2_
+_Copiar fonte unicode.pf2_
 ```bash
 cp $HOME/Distro/chroot/boot/grub/unicode.pf2 $HOME/Distro/antares/boot/grub/
 ```
 
-## _Copiar vmlinuz e initrd.img_
+_Copiar vmlinuz e initrd.img_
 ```bash   
 cp $HOME/Distro/chroot/boot/vmlinuz-* $HOME/Distro/antares/live/vmlinuz
 cp $HOME/Distro/chroot/boot/initrd.img-* $HOME/Distro/antares/live/initrd.lz
 ```
-# _Apagar vmlinuz.old e initrd.img.old_
+# Apagar vmlinuz.old e initrd.img.old
 ```bash   
 rm -r $HOME/Distro/chroot/vmlinuz && sudo rm -r $HOME/Distro/chroot/vmlinuz.old
 rm -r $HOME/Distro/chroot/initrd.img && sudo rm -r $HOME/Distro/chroot/initrd.img.old
@@ -345,7 +349,7 @@ rm -r $HOME/Distro/chroot/initrd.img && sudo rm -r $HOME/Distro/chroot/initrd.im
 
 # <p align="center">Squashfs
 ### Regerando os arquivos
-Regerando o arquivo filesystem.manifest e filesystem.squashfs
+_Regerando o arquivo filesystem.manifest e filesystem.squashfs_
 ```bash
 chmod +w antares/live/filesystem.manifest
 sudo chroot chroot dpkg-query -f '${binary:Package}\n' -W > antares/live/filesystem.manifest
@@ -354,7 +358,7 @@ sudo rm antares/live/filesystem.squashfs
 sudo mksquashfs chroot antares/live/filesystem.squashfs -comp xz
 ```
 # MD5sum
-Criar o MD5sum
+_Criar o MD5sum_
 ```bash
 cd antares
 sudo rm md5sum.txt
@@ -364,7 +368,7 @@ cd Distro
 ```
 
 # <p align="center">Gerando s imagem ISO
-Criando a imagem ISO com genisoimage
+_Criando a imagem ISO com genisoimage_
 ```bash
 genisoimage \
 -D -r -V “Antares-OS” -cache-inodes -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat \
@@ -372,7 +376,7 @@ genisoimage \
 ```
 
 # Excluir diretório
-Excluir diretório de customização
+_Excluir diretório de customização_
 ```bash
 sudo rm -r Distro
 ```
