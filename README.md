@@ -95,7 +95,7 @@ apt-transport-https build-essential btrfs-progs curl dbus-x11 dosfstools dkms rs
 efibootmgr linux-image-amd64 live-boot live-config squashfs-tools genisoimage isolinux lsb-base grub-common \
 grub2-common grub-efi-amd64 grub-efi-amd64-bin wget os-prober gnome-accessibility-themes gnome-disk-utility \
 gnome-shell gnome-shell-common gnome-shell-extension-prefs gnome-shell-extensions gnome-software gnome-session \
-gnome-tweaks nautilus mutter gdm3 xinit gnome-control-center xdg-user-dirs-gtk gedit file-roller yad calamares \
+gnome-tweaks gnome-terminal nautilus mutter gdm3 xinit gnome-control-center xdg-user-dirs-gtk gedit file-roller yad calamares \
 calamares-settings-debian
 ```
 
@@ -110,10 +110,10 @@ firmware-myricom firmware-netronome firmware-netxen firmware-qcom-soc firmware-q
 firmware-samsung firmware-siano firmware-sof-signed firmware-ti-connectivity
 ```
 
-## _Visual Studio Code_
+## _Navegador google-chrome-stable_
 Instalando pacotes externos
 ```bash
-wget https://vscode.download.prss.microsoft.com/dbazure/download/stable/1b6a188127eeaf9194f945eb6eb89a657e93c54c/code_1.130.0-1784734578_amd64.deb -P $HOME/Distro/files
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P $HOME/Distro/files
 cd $HOME/Distro/files
 dpkg -i *.deb && apt -f install
 ```
