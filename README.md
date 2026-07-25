@@ -223,7 +223,7 @@ sudo rm -r $HOME/Distro/chroot/vmlinuz && sudo rm -r $HOME/Distro/chroot/vmlinuz
 sudo rm -r $HOME/Distro/chroot/initrd.img && sudo rm -r $HOME/Distro/chroot/initrd.img.old
 ```
 
-# Squashfs
+# <p align="center">Squashfs
 ### Regerando os arquivos
 Regerando o arquivo filesystem.manifest e filesystem.squashfs
 ```bash
