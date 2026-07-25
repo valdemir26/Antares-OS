@@ -324,7 +324,7 @@ EOF
 ## _Copiar boot.cat e isolinux.bin_
 ```bash
 cp $HOME/Distro/chroot/usr/lib/ISOLINUX/isolinux.bin $HOME/Distro/antares/isolinux/
-cp $HOME/Distro/chroot/usr/lib/ISOLINUX/boot.cat $HOME/Distro/antares/isolinux/
+cp $HOME/Distro/chroot/usr/lib/grub/x86_64-efi/boot.mod $HOME/Distro/antares/isolinux/boot.cat
 ```
 
 ## _Copiar fonte unicode.pf2_
