@@ -187,7 +187,7 @@ cd
 cd Distro
 ```
 
-# <p align="center">Isolinux</p>
+# <p align="center">Arquivos de arranque do sistema</p>
 Criar o config.cfg
 ```bash
 cat > $HOME/Distro/antares/boot/grub/config.cfg << 'EOF'
