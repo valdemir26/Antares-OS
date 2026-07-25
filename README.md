@@ -152,7 +152,7 @@ cat > $HOME/Distro/files/README.diskdefines << 'EOF'
 #define TOTALNUM   0
 #define TOTALNUM0  1
 EOF
-sudo cp $HOME/Distro/files/README.diskdefines $HOME/Distro/chroot/antares/README.diskdefines
+sudo cp $HOME/Distro/files/README.diskdefines $HOME/Distro/antares/README.diskdefines
 ```
 
 ## Arquivos de boot do sistema
