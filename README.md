@@ -118,6 +118,7 @@ Remove os arquivos de configuração usandos no chroot
 rm -rf /tmp/* ~/.bash.history
 rm /etc/resolv.conf
 rm /etc/hosts
+apt clean
 exit
 ```
 
