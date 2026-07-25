@@ -75,7 +75,7 @@ apt update && apt dist-upgrade
 ```
 
 ## _Pacotes para instalação minima_
-Aqui é uma lista de pacotes que remove a opção de instalção dos aquivos recomendados no CONTROL do pacote .deb, para uma construção de ISOs sem ficar nenhuma dependência remova o --no-install-recommends
+A lista de pacotes que eu escolhi, mas remove a opção de instalção dos aquivos recomendados no CONTROL do pacote .deb, para uma construção de ISOs sem nenhuma dependência futura remova o --no-install-recommends
 ```bash
 apt install --no-install-recommends \
 apt-transport-https build-essential btrfs-progs curl dbus-x11 dosfstools dkms rsync e2fsprogs exfatprogs \
@@ -201,7 +201,7 @@ sudo rm -r Distro
         &copy; Copyright <strong><span>Antares OS</span></strong> 2020 2026 All Rights Reserved
       </div>
       <div class="credits">
-      Meu primeiro repositório <a href="https://jvmelo26.github.io/LinuxOS/">José Valdemir de Melo</a>
+      Para tirar dúvidas <a href="https://t.me/valdemir26antaresOS">José Valdemir de Melo</a>
       </div>
     </div>
   </footer>
