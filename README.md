@@ -161,6 +161,17 @@ Precisamos agora copiar os arquivos necessários de inicialização para BIOS Le
 sudo cp -r $HOME/Distro/chroot/usr/lib/grub/x86_64-efi/* "$HOME/Distro/antares/boot/grub/x86_64-efi/"
 ```
 
+Agora, criaremos uma imagem de disco de inicialização FAT16 UEFI contendo o carregador de inicialização EFI
+```bash
+cd $HOME/Distro/antares && \
+    dd if=/dev/zero of=efi.img bs=1M count=20 && \
+    mkfs.vfat efi.img && \
+    mmd -i efi.img efi efi/boot && \
+    mcopy -vi efi.img $HOME/Distro/files/bootx64.efi ::efi/boot/
+cd
+cd Distro
+```
+
 Vamos criar uma imagem inicializável para o GRUB EFI
 ```bash
 grub-mkstandalone \
@@ -174,17 +185,6 @@ cp $HOME/Distro/files/bootx64.efi $HOME/Distro/antares/EFI/boot/
 cp $HOME/Distro/files/bootx64.efi $HOME/Distro/antares/
 cp $HOME/Distro/antares/boot/grub/x86_64-efi/monolithic/grubx64.efi $HOME/Distro/antares/EFI/boot/
 cp $HOME/Distro/antares/boot/grub/x86_64-efi/monolithic/grubx64.efi $HOME/Distro/antares/
-```
-
-Agora, criaremos uma imagem de disco de inicialização FAT16 UEFI contendo o carregador de inicialização EFI
-```bash
-cd $HOME/Distro/antares && \
-    dd if=/dev/zero of=efi.img bs=1M count=20 && \
-    mkfs.vfat efi.img && \
-    mmd -i efi.img efi efi/boot && \
-    mcopy -vi efi.img $HOME/Distro/files/bootx64.efi ::efi/boot/
-cd
-cd Distro
 ```
 
 # <p align="center">Arquivos de arranque do sistema</p>
