@@ -188,7 +188,7 @@ sudo rm -r Distro
   <footer id="footer">
     <div class="container">      
       <h5 class="font-italic">
-      <div>_Imagens ISOs customizada do_ *GNU/Linux*</div>
+      _Imagens ISOs customizada do_ *GNU/Linux*
       </h5>
       <div class="social-links">
         <a href="https://github.com/valdemir26/Customize#readme" class="telegram"><i class="bx bxl-github"></i></a>
