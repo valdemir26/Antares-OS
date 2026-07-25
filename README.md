@@ -332,11 +332,6 @@ cp $HOME/Distro/chroot/usr/share/desktop-base/debian-logos/logo-text-version-256
 cp $HOME/Distro/chroot/boot/grub/unicode.pf2 $HOME/Distro/antares/boot/grub/
 ```
 
-## _Copiar fonte unicode.pf2_
-```bash
-cp $HOME/Distro/chroot/boot/grub/unicode.pf2 $HOME/Distro/antares/boot/grub/
-```
-
 ## _Copiar vmlinuz e initrd.img_
 ```bash   
 cp $HOME/Distro/chroot/boot/vmlinuz-* $HOME/Distro/antares/live/vmlinuz
