@@ -189,7 +189,7 @@ cp $HOME/Distro/antares/boot/grub/x86_64-efi/monolithic/grubx64.efi $HOME/Distro
 cp $HOME/Distro/antares/efi.img $HOME/Distro/antares/boot/grub
 ```
 
-# <p align="center">Arquivos de arranque do sistema</p>
+# <p align="center">Arquivos de arranque do sistema *grub*</p>
 Criar o config.cfg
 ```bash
 cat > $HOME/Distro/antares/boot/grub/config.cfg << 'EOF'
