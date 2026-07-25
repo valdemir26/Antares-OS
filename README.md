@@ -93,8 +93,8 @@ A lista de pacotes que eu escolhi, para uma interface limpa mas fica ao critéri
 ```bash
 apt install -y \
 apt-transport-https build-essential btrfs-progs curl dbus-x11 dosfstools dkms rsync e2fsprogs exfatprogs \
-efibootmgr linux-image-amd64 live-boot live-config squashfs-tools genisoimage isolinux lsb-base grub-common \
-grub2-common grub-efi-amd64 grub-efi-amd64-bin wget os-prober gnome-accessibility-themes gnome-disk-utility \
+efibootmgr linux-image-amd64 live-boot live-config squashfs-tools genisoimage isolinux isolinux.bin lsb-base \
+grub-common grub2-common grub-efi-amd64 grub-efi-amd64-bin wget os-prober gnome-accessibility-themes gnome-disk-utility \
 gnome-shell gnome-shell-common gnome-shell-extension-prefs gnome-shell-extensions gnome-software gnome-session \
 gnome-tweaks gnome-terminal nautilus mutter mtools gdm3 xinit gnome-control-center xdg-user-dirs-gtk gedit file-roller \
 yad calamares calamares-settings-debian
