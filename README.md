@@ -176,9 +176,6 @@ cd
 cd Distro
 ```
 
-Se você conseguir chegar até aqui então falta muito pouco, este final de semana eu vou concluir o passo a passo, faltam alguns arquivos de configuração a serem disponibilizados aqui, então nao remova as pastas.
-
-
 
 # Excluir diretório
 Excluir diretório de customização
