@@ -137,11 +137,7 @@ sudo mksquashfs chroot antares/live/filesystem.squashfs -comp xz
 ## _README.diskdefines_
 Cria um rótulo para a imagem ISO
 ```bash
-cd antares
-sudo rm md5sum.txt
-find -type f -print0 | xargs -0 md5sum | grep -v isolinux/boot.cat | tee md5sum.txt
-cd
-cd Distro
+
 ```
 
 ## Arquivos de boot do sistema
