@@ -26,7 +26,7 @@ apt update && apt -y install \
     genisoimage \
 ```
 
-# _Criando a jaula do sistema_
+## _Criando a jaula do sistema_
 Agora vamos criar o diretório que irão conter os arquivos nescessários para fazer o chroot
 ```bash
 mkdir -p $HOME/Distro/{chroot,antares/{EFI/boot,boot/grub/live,isolinux,live},files}
