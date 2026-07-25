@@ -167,6 +167,7 @@ grub-mkstandalone \
     --format=x86_64-efi \
     --output=$HOME/Distro/files/bootx64.efi \
     --locales="" \
+    --themes="" \
     --fonts="" \
     "boot/grub/grub.cfg=$HOME/Distro/files/grub.cfg"
 cp $HOME/Distro/files/bootx64.efi $HOME/Distro/antares/EFI/boot/
