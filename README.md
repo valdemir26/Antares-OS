@@ -266,7 +266,7 @@ EOF
 
 Criar o theme.txt
 ```bash
-cat > $HOME/Distro/antares/boot/grub/theme.txt << 'EOF'
+cat > $HOME/Distro/antares/boot/grub/theme/theme.txt << 'EOF'
 desktop-image: "../splash.png"
 title-color: "#ffffff"
 title-font: "Unifont Regular 16"
