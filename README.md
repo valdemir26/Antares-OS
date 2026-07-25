@@ -84,7 +84,7 @@ EOF
 ## _Atualizar a lista de pacotes_
 Carrega a lista de pacotes para serem atualizados ou instalados
 ```bash
-apt update && apt dist-upgrade
+apt update && apt dist-upgrade -y
 ```
 
 ## _Pacotes para instalação minima_
