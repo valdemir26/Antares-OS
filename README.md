@@ -37,7 +37,7 @@ sudo apt update && apt -y install \
 ```
 
 ## _Criando a jaula do sistema_
-Antes de começarmos a customizar o nosso Linux OS, devemos criar o diretório e os subdiretórios que serão nossa área de trabalho
+Antes de começarmos a criar a nossa *Distro*, devemos criar o diretório e os subdiretórios que serão nossa área de trabalho
 Para criar o diretório e os subdiretórios, podemos usar o navegador de aquivos ou simplesmente fazer isso no terminal como decrito logo abaixo \
 Depois que o diretórios e os subdiretórios estiverem criados, é só seguir o passo a passo
 Agora vamos criar o diretório que irão conter os arquivos nescessários para fazer o chroot
