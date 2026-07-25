@@ -75,6 +75,7 @@ apt update && apt dist-upgrade
 ```
 
 ## _Pacotes para instalação minima_
+Aqui é uma lista de pacotes que remove a opção de instalção dos aquivos recomendados no CONTROL do pacote .deb, para uma construção de ISOs sem ficar nenhuma dependência remova o --no-install-recommends
 ```bash
 apt install --no-install-recommends \
 apt-transport-https build-essential btrfs-progs curl dbus-x11 dosfstools dkms rsync e2fsprogs exfatprogs \
@@ -86,7 +87,7 @@ gedit file-roller yad calamares calamares-settings-debian
 ```
 
 ## _Firmwares_
-Instalar os drivers firmware-linux-free e firmware-linux-nonfree
+Instalar os drivers firmware-linux-free e firmware-linux-nonfree, alguns firmware-nonfree é nescessário aceitar os termos para instalação do pacote
 ```bash
 apt install \
 firmware-amd-graphics firmware-ast firmware-ath9k-htc firmware-atheros firmware-bnx2 firmware-bnx2x \
@@ -94,13 +95,6 @@ firmware-brcm80211 firmware-cavium firmware-intel-sound firmware-ipw2x00 firmwar
 firmware-libertas firmware-linux firmware-linux-free firmware-linux-nonfree firmware-misc-nonfree \
 firmware-myricom firmware-netronome firmware-netxen firmware-qcom-soc firmware-qlogic firmware-realtek \
 firmware-samsung firmware-siano firmware-sof-signed firmware-ti-connectivity
-```
-
-## _Configurar o locales e ajustar a timezone_
-```bash
-dpkg-reconfigure locales
-rm /etc/localtime
-ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 ```
 
 ## _Limpar cache do APT e finalizar o chroot_
@@ -133,7 +127,7 @@ sudo cp $HOME/Distro/files/antares.conf $HOME/Distro/chroot/etc/live/config.conf
 Regerando o arquivo filesystem.manifest e filesystem.squashfs
 ```bash
 chmod +w antares/live/filesystem.manifest
-sudo chroot chroot dpkg-query -f '${binary:Package} ${Version}\n' -W > antares/live/filesystem.manifest
+sudo chroot chroot dpkg-query -f '${binary:Package}\n' -W > antares/live/filesystem.manifest
 sudo cp antares/live/filesystem.manifest antares/live/filesystem.manifest
 sudo rm antares/live/filesystem.squashfs
 sudo mksquashfs chroot antares/live/filesystem.squashfs -comp xz
