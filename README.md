@@ -28,7 +28,7 @@ Optamos por utilizar um processo manual de customização do Linux, utilizando o
 Para criar o ambiente necessário para customização
 Computador (Desktop ou Notebook) com Linux instalado e com suporte para o "squashfs" no kernel, desde 2006 o linux já possui suporte para o Squashfs no kernel, porém sugerimos utilizar a versão mais atual disponível.
 
-Como criar sua própria ISO com debootstrap, use o comando para certificar que os pacotes estão presentes em seu sistema
+_Como criar sua própria ISO com debootstrap, use o comando para certificar que os pacotes estão presentes em seu sistema_
 ```bash
 sudo apt update && apt -y install \
     debootstrap \
@@ -37,10 +37,10 @@ sudo apt update && apt -y install \
 ```
 
 ## _Criando a jaula do sistema_
-Antes de começarmos a criar a nossa *Distro*, devemos criar o diretório e os subdiretórios que serão nossa área de trabalho
+Antes de começarmos a criar a nossa *Distro*, devemos criar o diretório e os subdiretórios que serão nossa área de trabalho \
 Para criar o diretório e os subdiretórios, podemos usar o navegador de aquivos ou simplesmente fazer isso no terminal como decrito logo abaixo \
 Depois que o diretórios e os subdiretórios estiverem criados, é só seguir o passo a passo \
-Agora vamos criar o diretório que irão conter os arquivos nescessários para fazer o chroot
+_Agora vamos criar o diretório que irão conter os arquivos nescessários para fazer o chroot_
 ```bash
 mkdir -p $HOME/Distro/{chroot,antares/{EFI/boot,boot/grub/{theme,x86_64-efi},isolinux,live},files}
 cd Distro
@@ -49,7 +49,7 @@ cd Distro
 ## _Instala o sistema base com debootstrap_
 A ferramenta debootstrap irá selecionar os pacotes nescessários da base so sistema escolhido para chroot, é nescessário instalar a chave gpg do sistema escolhido
 ### Exemplo 
-debian-archive-keyring \
+_debian-archive-keyring_ \
 http://deb.debian.org/debian/pool/main/d/debian-archive-keyring/
 ```bash
 sudo debootstrap \
@@ -61,7 +61,7 @@ sudo debootstrap \
  ```    
 
  ## _Iniciando o chroot_
-Copia os arquivos /resolv.conf /hosts da maquina local e monta /dev /proc /sys para configuração de ambiente para uso do chroot
+_Copia os arquivos /resolv.conf /hosts da maquina local e monta /dev /proc /sys para configuração de ambiente para uso do chroot_
 ```bash
 sudo cp /etc/resolv.conf chroot/etc/
 sudo cp /etc/hosts chroot/etc/
@@ -75,21 +75,27 @@ sudo chroot chroot
 Source.list
 ```bash
 cat > /etc/apt/sources.list << 'EOF'
-deb http://deb.debian.org/debian trixie main non-free-firmware contrib non-free
-deb http://deb.debian.org/debian trixie-updates main non-free-firmware contrib non-free
-deb http://deb.debian.org/debian trixie-proposed-updates main non-free-firmware contrib non-free
-deb http://security.debian.org/debian-security/ trixie-security main non-free-firmware contrib non-free
+deb https://deb.debian.org/debian/ trixie contrib main non-free non-free-firmware
+# deb-src https://deb.debian.org/debian/ trixie contrib main non-free non-free-firmware
+deb https://deb.debian.org/debian/ trixie-updates contrib main non-free non-free-firmware
+deb https://deb.debian.org/debian/ trixie-backports contrib main non-free non-free-firmware
+# deb-src https://deb.debian.org/debian/ trixie-backports contrib main non-free non-free-firmware
+# deb-src https://deb.debian.org/debian/ trixie-updates contrib main non-free non-free-firmware
+deb https://deb.debian.org/debian/ trixie-proposed-updates contrib main non-free non-free-firmware
+# deb-src https://deb.debian.org/debian/ trixie-proposed-updates contrib main non-free non-free-firmware
+deb https://security.debian.org/debian-security/ trixie-security contrib main non-free non-free-firmware
+# deb-src https://security.debian.org/debian-security/ trixie-security contrib main non-free non-free-firmware
 EOF
 ```
 
 ## _Atualizar a lista de pacotes_
-Carrega a lista de pacotes para serem atualizados ou instalados
+_Carrega a lista de pacotes para serem atualizados ou instalados_
 ```bash
-apt update && apt dist-upgrade -y
+apt update -y && apt full-upgrade -y
 ```
 
 ## _Pacotes para instalação minima_
-A lista de pacotes que eu escolhi, para uma interface limpa mas fica ao critério de cada escolher seus próprios pacotes
+_A lista de pacotes que eu escolhi, para uma interface limpa mas fica ao critério de cada escolher seus próprios pacotes_
 ```bash
 apt install -y \
 apt-transport-https build-essential btrfs-progs curl dbus-x11 dosfstools dkms rsync e2fsprogs exfatprogs \
@@ -101,7 +107,7 @@ yad calamares calamares-settings-debian
 ```
 
 ## _Firmwares_
-Instalar os drivers firmware-linux-free e firmware-linux-nonfree, alguns firmware-nonfree é nescessário aceitar os termos para instalação do pacote
+_Instalar os drivers firmware-linux-free e firmware-linux-nonfree, alguns firmware-nonfree é nescessário aceitar os termos para instalação do pacote_
 ```bash
 apt install -y \
 firmware-amd-graphics firmware-ast firmware-ath9k-htc firmware-atheros firmware-bnx2 firmware-bnx2x \
@@ -113,7 +119,7 @@ firmware-samsung firmware-siano firmware-sof-signed firmware-ti-connectivity
 
 
 ## _Limpar cache do APT e finalizar o chroot_
-Remove os arquivos de configuração usandos no chroot
+_Remove os arquivos de configuração usandos no chroot_
 ```bash    
 rm -rf /tmp/* ~/.bash.history
 rm /etc/resolv.conf
@@ -122,15 +128,15 @@ apt clean
 exit
 ```
 
-## _Desmontar o ambiente de customização_
-Desmonta o /dev /proc /sys que também foram montados no chroot
+## _Desmonta as partições do ambiente de customização_
+_Desmonta o /dev /proc /sys que também foram montados no chroot_
 ```bash   
 sudo umount -lf chroot/dev
 sudo umount -lf chroot/proc
 sudo umount -lf chroot/sys
 ```
 ## Criando o usuário live do sistema
-Este é o usuário padrão do sistema live
+_Este é o usuário padrão do sistema live_
 ```bash 
 cat > $HOME/Distro/files/antares.conf << 'EOF'
 LIVE_USERNAME="antares"
@@ -140,7 +146,7 @@ sudo cp $HOME/Distro/files/antares.conf $HOME/Distro/chroot/etc/live/config.conf
 ```
 
 ## _README.diskdefines_
-Cria um rótulo para a imagem ISO
+_Cria um rótulo para a imagem ISO_
 ```bash
 cat > $HOME/Distro/antares/README.diskdefines << 'EOF'
 #define DISKNAME   AntaresOS
@@ -157,12 +163,12 @@ EOF
 
 ## Arquivos de boot do sistema
 # <p align="center">Grub</p>
-Precisamos agora copiar os arquivos necessários de inicialização para BIOS Legacy para o diretório do LiveCD
+_Precisamos agora copiar os arquivos necessários de inicialização para BIOS Legacy para o diretório do LiveCD_
 ```bash
 sudo cp -r $HOME/Distro/chroot/usr/lib/grub/x86_64-efi/* "$HOME/Distro/antares/boot/grub/x86_64-efi/"
 ```
 
-Agora, criaremos uma imagem de disco de inicialização FAT16 UEFI contendo o carregador de inicialização EFI
+_Agora, criaremos uma imagem de disco de inicialização FAT16 UEFI contendo o carregador de inicialização EFI_
 ```bash
 cd $HOME/Distro/antares && \
     dd if=/dev/zero of=efi.img bs=1M count=20 && \
@@ -173,7 +179,7 @@ cd
 cd Distro
 ```
 
-Vamos criar uma imagem inicializável para o GRUB EFI
+_Vamos criar uma imagem inicializável para o GRUB EFI_
 ```bash
 grub-mkstandalone \
     --format=x86_64-efi \
@@ -190,7 +196,7 @@ cp $HOME/Distro/antares/efi.img $HOME/Distro/antares/boot/grub
 ```
 
 # <p align="center">Arquivos de arranque do sistema</p>
-Criar o config.cfg
+_Criar o config.cfg_
 ```bash
 cat > $HOME/Distro/antares/boot/grub/config.cfg << 'EOF'
 set default=0
@@ -225,7 +231,7 @@ play 960 440 1 0 4 440 1
 EOF
 ```
 
-Criar o grub.cfg
+_Criar o grub.cfg_
 ```bash
 cat > $HOME/Distro/antares/boot/grub/grub.cfg << 'EOF'
 source /boot/grub/config.cfg
@@ -242,14 +248,14 @@ menuentry "Antares OS (amd64 fail-safe mode)" {
 EOF
 ```
 
-Criar o loopback.cfg
+_Criar o loopback.cfg_
 ```bash
 cat > $HOME/Distro/antares/boot/grub/loopback.cfg << 'EOF'
 source /boot/grub/grub.cfg
 EOF
 ```
 
-Criar o theme.cfg
+_Criar o theme.cfg_
 ```bash
 cat > $HOME/Distro/antares/boot/grub/theme.cfg << 'EOF'
 set color_normal=light-gray/black
@@ -266,7 +272,7 @@ fi
 EOF
 ```
 
-Criar o theme.txt
+_Criar o theme.txt_
 ```bash
 cat > $HOME/Distro/antares/boot/grub/theme/theme.txt << 'EOF'
 desktop-image: "../splash.png"
@@ -323,6 +329,7 @@ terminal-font: "Unifont Regular 16"
 EOF
 ```
 # <p align="center">Isolinux</p>
+_Copiar boot.cat e isolinux.bin_
 ```bash
 cp $HOME/Distro/chroot/usr/share/desktop-base/debian-logos/logo-text-version-256.png $HOME/Distro/antares/isolinux/splash.png
 ```
