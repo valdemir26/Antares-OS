@@ -350,7 +350,43 @@ cp $HOME/Distro/chroot/boot/grub/unicode.pf2 $HOME/Distro/antares/boot/grub/
 # <p align="center">Isolinux</p>
 _Copiar boot.cat e isolinux.bin_
 ```bash
-cp $HOME/Distro/chroot/usr/share/desktop-base/debian-logos/logo-text-version-256.png $HOME/Distro/antares/isolinux/splash.png
+cp $HOME/Distro/chroot/usr/lib/ISOLINUX/isolinux.bin $HOME/Distro/antares/isolinux/
+cp $HOME/Distro/chroot/usr/lib/grub/x86_64-efi/boot.mod $HOME/Distro/antares/isolinux/boot.cat
+```
+
+_Isolinux.cfg_
+```bash
+cat > $HOME/Distro/antares/isolinux/isolinux.cfg << 'EOF'
+include menu.cfg
+default vesamenu.c32
+prompt 0
+timeout 0
+EOF
+```
+
+_Live.cfg_
+```bash
+cat > $HOME/Distro/antares/isolinux/live.cfg << 'EOF'
+label live-amd64
+	menu label ^Antares OS (amd64)
+	menu default
+	linux /live/vmlinuz
+	initrd /live/initrd.lz
+	append boot=live locales=pt_BR.UTF-8 keyboard-layouts=pt_BR username=antares hostname=antares autologin
+
+label live-amd64-failsafe
+	menu label Antares OS (amd64 fail-safe mode)
+	linux /live/vmlinuz
+	initrd /live/initrd.lz
+	append boot=live components memtest noapic noapm nodma nomce nolapic nosmp nosplash vga=788
+EOF
+```
+
+_Menu.cfg_
+```bash
+cat > $HOME/Distro/antares/isolinux/menu.cfg << 'EOF'
+
+EOF
 ```
 
 _Copiar vmlinuz e initrd.img_
@@ -358,7 +394,7 @@ _Copiar vmlinuz e initrd.img_
 cp $HOME/Distro/chroot/boot/vmlinuz-* $HOME/Distro/antares/live/vmlinuz
 cp $HOME/Distro/chroot/boot/initrd.img-* $HOME/Distro/antares/live/initrd.lz
 ```
-# Apagar vmlinuz.old e initrd.img.old
+_Apagar vmlinuz.old e initrd.img.old_
 ```bash   
 rm -r $HOME/Distro/chroot/vmlinuz && sudo rm -r $HOME/Distro/chroot/vmlinuz.old
 rm -r $HOME/Distro/chroot/initrd.img && sudo rm -r $HOME/Distro/chroot/initrd.img.old
