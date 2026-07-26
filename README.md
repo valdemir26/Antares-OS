@@ -145,6 +145,12 @@ EOF
 sudo cp $HOME/Distro/files/antares.conf $HOME/Distro/chroot/etc/live/config.conf.d/antares.conf
 ```
 
+_Agora vamos criar o restante dos arquivos_
+```bash
+mkdir -p $HOME/Distro/{chroot,antares/{EFI/boot,boot/grub/{theme,x86_64-efi},isolinux,live},files}
+cd Distro
+```
+
 ## README.diskdefines
 _Cria um rótulo para a imagem ISO_
 ```bash
