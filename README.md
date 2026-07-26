@@ -75,11 +75,10 @@ sudo chroot chroot
 _Source.list_
 ```bash
 cat > /etc/apt/sources.list << 'EOF'
-deb https://deb.debian.org/debian/ trixie contrib main non-free non-free-firmware
-deb https://deb.debian.org/debian/ trixie-updates contrib main non-free non-free-firmware
-deb https://deb.debian.org/debian/ trixie-backports contrib main non-free non-free-firmware
-deb https://deb.debian.org/debian/ trixie-proposed-updates contrib main non-free non-free-firmware
-deb https://security.debian.org/debian-security/ trixie-security contrib main non-free non-free-firmware
+deb http://deb.debian.org/debian trixie main non-free-firmware contrib non-free
+deb http://deb.debian.org/debian trixie-updates main non-free-firmware contrib non-free
+deb http://deb.debian.org/debian trixie-proposed-updates main non-free-firmware contrib non-free
+deb http://security.debian.org/debian-security/ trixie-security main non-free-firmware contrib non-free
 EOF
 ```
 
