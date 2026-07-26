@@ -342,15 +342,15 @@ cp $HOME/Distro/files/backgound.png $HOME/Distro/antares/isolinux/splash.png
 cp $HOME/Distro/files/backgound.png $HOME/Distro/antares/boot/grub/splash.png
 ```
 
+_Copiar fonte unicode.pf2_
+```bash
+cp $HOME/Distro/chroot/boot/grub/unicode.pf2 $HOME/Distro/antares/boot/grub/
+```
+
 # <p align="center">Isolinux</p>
 _Copiar boot.cat e isolinux.bin_
 ```bash
 cp $HOME/Distro/chroot/usr/share/desktop-base/debian-logos/logo-text-version-256.png $HOME/Distro/antares/isolinux/splash.png
-```
-
-_Copiar fonte unicode.pf2_
-```bash
-cp $HOME/Distro/chroot/boot/grub/unicode.pf2 $HOME/Distro/antares/boot/grub/
 ```
 
 _Copiar vmlinuz e initrd.img_
