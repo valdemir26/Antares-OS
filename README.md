@@ -382,12 +382,36 @@ label live-amd64-failsafe
 EOF
 ```
 
-_Menu.cfg_
+_Stdmenu.cfg_
 ```bash
-cat > $HOME/Distro/antares/isolinux/menu.cfg << 'EOF'
-
+cat > $HOME/Distro/antares/isolinux/stdmenu.cfg << 'EOF'
+menu background splash.png
+menu color title	* #FFFFFFFF *
+menu color border	* #00000000 #00000000 none
+menu color sel		* #ffffffff #76a1d0ff *
+menu color hotsel	1;7;37;40 #ffffffff #76a1d0ff *
+menu color tabmsg	* #ffffffff #00000000 *
+menu color help		37;40 #ffdddd00 #00000000 none
+menu vshift 12
+menu rows 10
+menu helpmsgrow 15
+# The command line must be at least one line from the bottom.
+menu cmdlinerow 16
+menu timeoutrow 16
+menu tabmsgrow 18
+menu tabmsg Press ENTER to boot or TAB to edit a menu entry
 EOF
 ```
+
+_Utilities.cfg_
+```bash
+cat > $HOME/Distro/antares/isolinux/utilities.cfg << 'EOF'
+label hdt
+	menu label ^Hardware Detection Tool (HDT)
+	com32 hdt.c32
+EOF
+```
+
 
 _Copiar vmlinuz e initrd.img_
 ```bash   
