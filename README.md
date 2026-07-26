@@ -76,15 +76,10 @@ _Source.list_
 ```bash
 cat > /etc/apt/sources.list << 'EOF'
 deb https://deb.debian.org/debian/ trixie contrib main non-free non-free-firmware
-# deb-src https://deb.debian.org/debian/ trixie contrib main non-free non-free-firmware
 deb https://deb.debian.org/debian/ trixie-updates contrib main non-free non-free-firmware
 deb https://deb.debian.org/debian/ trixie-backports contrib main non-free non-free-firmware
-# deb-src https://deb.debian.org/debian/ trixie-backports contrib main non-free non-free-firmware
-# deb-src https://deb.debian.org/debian/ trixie-updates contrib main non-free non-free-firmware
 deb https://deb.debian.org/debian/ trixie-proposed-updates contrib main non-free non-free-firmware
-# deb-src https://deb.debian.org/debian/ trixie-proposed-updates contrib main non-free non-free-firmware
 deb https://security.debian.org/debian-security/ trixie-security contrib main non-free non-free-firmware
-# deb-src https://security.debian.org/debian-security/ trixie-security contrib main non-free non-free-firmware
 EOF
 ```
 
