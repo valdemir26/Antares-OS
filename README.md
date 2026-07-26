@@ -20,10 +20,10 @@
 
 # <p align="center">Crie seu linux do zero com debootstrap
 
-## _Como funciona_
+## Como funciona
 Optamos por utilizar um processo manual de customização do Linux, utilizando o squashfs, genisoimage e chroot, é simples, você usa a própria distribuição instalada como base, sem aplicativos extras, que as vezes é incompatível dependendo da distribuição.
 
-## _Preparando o ambiente_
+## Preparando o ambiente
 ### Para criar o ambiente necessário para customização
 Para criar o ambiente necessário para customização
 Computador (Desktop ou Notebook) com Linux instalado e com suporte para o "squashfs" no kernel, desde 2006 o linux já possui suporte para o Squashfs no kernel, porém sugerimos utilizar a versão mais atual disponível.
@@ -36,7 +36,7 @@ sudo apt update && apt -y install \
     genisoimage \
 ```
 
-## _Criando a jaula do sistema_
+## Criando a jaula do sistema
 Antes de começarmos a criar a nossa *Distro*, devemos criar o diretório e os subdiretórios que serão nossa área de trabalho \
 Para criar o diretório e os subdiretórios, podemos usar o navegador de aquivos ou simplesmente fazer isso no terminal como decrito logo abaixo \
 Depois que o diretórios e os subdiretórios estiverem criados, é só seguir o passo a passo \
@@ -46,8 +46,8 @@ mkdir -p $HOME/Distro/{chroot,antares/{EFI/boot,boot/grub/{theme,x86_64-efi},iso
 cd Distro
 ```
 
-## _Instala o sistema base com debootstrap_
-A ferramenta debootstrap irá selecionar os pacotes nescessários da base so sistema escolhido para chroot, é nescessário instalar a chave gpg do sistema escolhido
+## Instala o sistema base com debootstrap
+_A ferramenta debootstrap irá selecionar os pacotes nescessários da base so sistema escolhido para chroot, é nescessário instalar a chave gpg do sistema escolhido_
 ### Exemplo 
 _debian-archive-keyring_ \
 http://deb.debian.org/debian/pool/main/d/debian-archive-keyring/
@@ -60,7 +60,7 @@ sudo debootstrap \
     http://deb.debian.org/debian/
  ```    
 
- ## _Iniciando o chroot_
+ ## Iniciando o chroot
 _Copia os arquivos /resolv.conf /hosts da maquina local e monta /dev /proc /sys para configuração de ambiente para uso do chroot_
 ```bash
 sudo cp /etc/resolv.conf chroot/etc/
@@ -71,8 +71,8 @@ sudo mount --bind /sys chroot/sys
 sudo chroot chroot
 ```
 
-## _Adicionando repositório Debian_
-Source.list
+## Adicionando repositório Debian
+_Source.list_
 ```bash
 cat > /etc/apt/sources.list << 'EOF'
 deb https://deb.debian.org/debian/ trixie contrib main non-free non-free-firmware
@@ -88,13 +88,13 @@ deb https://security.debian.org/debian-security/ trixie-security contrib main no
 EOF
 ```
 
-## _Atualizar a lista de pacotes_
+## Atualizar a lista de pacotes
 _Carrega a lista de pacotes para serem atualizados ou instalados_
 ```bash
 apt update -y && apt full-upgrade -y
 ```
 
-## _Pacotes para instalação minima_
+## Pacotes para instalação minima
 _A lista de pacotes que eu escolhi, para uma interface limpa mas fica ao critério de cada escolher seus próprios pacotes_
 ```bash
 apt install -y \
@@ -106,7 +106,7 @@ gnome-tweaks gnome-terminal nautilus mutter mtools gdm3 xinit gnome-control-cent
 yad calamares calamares-settings-debian
 ```
 
-## _Firmwares_
+## Firmwares
 _Instalar os drivers firmware-linux-free e firmware-linux-nonfree, alguns firmware-nonfree é nescessário aceitar os termos para instalação do pacote_
 ```bash
 apt install -y \
@@ -118,7 +118,7 @@ firmware-samsung firmware-siano firmware-sof-signed firmware-ti-connectivity
 ```
 
 
-## _Limpar cache do APT e finalizar o chroot_
+## Limpar cache do APT e finalizar o chroot
 _Remove os arquivos de configuração usandos no chroot_
 ```bash    
 rm -rf /tmp/* ~/.bash.history
@@ -128,7 +128,7 @@ apt clean
 exit
 ```
 
-## _Desmonta as partições do ambiente de customização_
+## Desmonta as partições do ambiente de customização
 _Desmonta o /dev /proc /sys que também foram montados no chroot_
 ```bash   
 sudo umount -lf chroot/dev
@@ -145,7 +145,7 @@ EOF
 sudo cp $HOME/Distro/files/antares.conf $HOME/Distro/chroot/etc/live/config.conf.d/antares.conf
 ```
 
-## _README.diskdefines_
+## README.diskdefines
 _Cria um rótulo para a imagem ISO_
 ```bash
 cat > $HOME/Distro/antares/README.diskdefines << 'EOF'
