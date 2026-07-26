@@ -335,11 +335,14 @@ terminal-font: "Unifont Regular 16"
 }
 EOF
 ```
-# <p align="center">Isolinux</p>
-_Copiar boot.cat e isolinux.bin_
+
+_Copiar a imagem de boot, a imagem deve ser escolhida por voçê e colocada na pasta files_
 ```bash
-cp $HOME/Distro/chroot/usr/share/desktop-base/debian-logos/logo-text-version-256.png $HOME/Distro/antares/isolinux/splash.png
+cp $HOME/Distro/files/backgound.png $HOME/Distro/antares/isolinux/splash.png
+cp $HOME/Distro/files/backgound.png $HOME/Distro/antares/boot/grub/splash.png
 ```
+
+# <p align="center">Isolinux</p>
 _Copiar boot.cat e isolinux.bin_
 ```bash
 cp $HOME/Distro/chroot/usr/share/desktop-base/debian-logos/logo-text-version-256.png $HOME/Distro/antares/isolinux/splash.png
