@@ -131,7 +131,7 @@ sudo umount -lf chroot/proc
 sudo umount -lf chroot/sys
 ```
 
-_Agora vamos criar o restante dos arquivos_
+_Finalizado o chroo agora vamos criar o restante dos arquivos_
 ```bash
 mkdir -p $HOME/Distro/{chroot,antares/{EFI/boot,boot/grub/{theme,x86_64-efi},isolinux,live},files}
 ```
