@@ -269,9 +269,9 @@ set color_normal=light-gray/black
 set color_highlight=white/dark-gray
 
 if [ -e /isolinux/splash.png ]; then
-    set theme=/boot/grub/antares/theme.txt
+    set theme=/boot/grub/theme/theme.txt
 elif [ -e /boot/grub/splash.png ]; then
-    set theme=/boot/grub/antares/theme.txt
+    set theme=/boot/grub/theme/theme.txt
 else
     set menu_color_normal=cyan/blue
     set menu_color_highlight=white/blue
