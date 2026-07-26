@@ -148,7 +148,6 @@ sudo cp $HOME/Distro/files/antares.conf $HOME/Distro/chroot/etc/live/config.conf
 _Agora vamos criar o restante dos arquivos_
 ```bash
 mkdir -p $HOME/Distro/{chroot,antares/{EFI/boot,boot/grub/{theme,x86_64-efi},isolinux,live},files}
-cd Distro
 ```
 
 ## README.diskdefines
