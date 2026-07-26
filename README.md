@@ -42,7 +42,7 @@ Para criar o diretório e os subdiretórios, podemos usar o navegador de aquivos
 Depois que o diretórios e os subdiretórios estiverem criados, é só seguir o passo a passo \
 _Agora vamos criar o diretório que irão conter os arquivos nescessários para fazer o chroot_
 ```bash
-mkdir -p $HOME/Distro/{chroot,antares/{EFI/boot,boot/grub/{theme,x86_64-efi},isolinux,live},files}
+mkdir -p $HOME/Distro/chroot
 cd Distro
 ```
 
