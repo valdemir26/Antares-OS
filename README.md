@@ -161,8 +161,8 @@ cat > $HOME/Distro/antares/README.diskdefines << 'EOF'
 EOF
 ```
 
-## Arquivos de boot do sistema
 # <p align="center">Grub</p>
+## Arquivos de boot do sistema
 _Precisamos agora copiar os arquivos necessários de inicialização para BIOS Legacy para o diretório do LiveCD_
 ```bash
 sudo cp -r $HOME/Distro/chroot/usr/lib/grub/x86_64-efi/* "$HOME/Distro/antares/boot/grub/x86_64-efi/"
