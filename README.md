@@ -354,64 +354,22 @@ cp $HOME/Distro/chroot/usr/lib/ISOLINUX/isolinux.bin $HOME/Distro/antares/isolin
 cp $HOME/Distro/chroot/usr/lib/grub/x86_64-efi/boot.mod $HOME/Distro/antares/isolinux/boot.cat
 ```
 
-_Isolinux.cfg_
+_grub.cfg_
 ```bash
-cat > $HOME/Distro/antares/isolinux/isolinux.cfg << 'EOF'
-include menu.cfg
-default vesamenu.c32
-prompt 0
-timeout 0
+cat > $HOME/Distro/antares/isolinux/grub.cfg << 'EOF'
+source /boot/grub/config.cfg
+
+# Live boot
+menuentry "Antares OS (amd64)" --hotkey=l {
+	linux	/live/vmlinuz boot=live locales=pt_BR.UTF-8 keyboard-layouts=pt_BR username=antares hostname=antares autologin findiso=${iso_path}
+	initrd	/live/initrd.lz
+}
+menuentry "Antares OS (amd64 fail-safe mode)" {
+	linux	/live/vmlinuz boot=live components memtest noapic noapm nodma nomce nolapic nosmp nosplash vga=788
+	initrd	/live/initrd.lz
+}
 EOF
 ```
-
-_Live.cfg_
-```bash
-cat > $HOME/Distro/antares/isolinux/live.cfg << 'EOF'
-label live-amd64
-	menu label ^Antares OS (amd64)
-	menu default
-	linux /live/vmlinuz
-	initrd /live/initrd.lz
-	append boot=live locales=pt_BR.UTF-8 keyboard-layouts=pt_BR username=antares hostname=antares autologin
-
-label live-amd64-failsafe
-	menu label Antares OS (amd64 fail-safe mode)
-	linux /live/vmlinuz
-	initrd /live/initrd.lz
-	append boot=live components memtest noapic noapm nodma nomce nolapic nosmp nosplash vga=788
-EOF
-```
-
-_Stdmenu.cfg_
-```bash
-cat > $HOME/Distro/antares/isolinux/stdmenu.cfg << 'EOF'
-menu background splash.png
-menu color title	* #FFFFFFFF *
-menu color border	* #00000000 #00000000 none
-menu color sel		* #ffffffff #76a1d0ff *
-menu color hotsel	1;7;37;40 #ffffffff #76a1d0ff *
-menu color tabmsg	* #ffffffff #00000000 *
-menu color help		37;40 #ffdddd00 #00000000 none
-menu vshift 12
-menu rows 10
-menu helpmsgrow 15
-# The command line must be at least one line from the bottom.
-menu cmdlinerow 16
-menu timeoutrow 16
-menu tabmsgrow 18
-menu tabmsg Press ENTER to boot or TAB to edit a menu entry
-EOF
-```
-
-_Utilities.cfg_
-```bash
-cat > $HOME/Distro/antares/isolinux/utilities.cfg << 'EOF'
-label hdt
-	menu label ^Hardware Detection Tool (HDT)
-	com32 hdt.c32
-EOF
-```
-
 
 _Copiar vmlinuz e initrd.img_
 ```bash   
