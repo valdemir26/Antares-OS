@@ -146,10 +146,10 @@ EOF
 sudo cp $HOME/Distro/files/antares.conf $HOME/Distro/chroot/etc/live/config.conf.d/antares.conf
 ```
 
-## README.diskdefines
-_Cria um rótulo para a imagem ISO_
+## Permissão na pasta onde vão ser criados os novos arquivos
+_chmod 755 é a permissão mais usada em servidores de hospedagem de sites, ele mantém o diretório e o arquivo seguros e protegidos, impedindo que terceiros façam alterações_
 ```bash
-
+sudo chmod -R 755 $HOME/Distro/antares/
 ```
 
 ## README.diskdefines
