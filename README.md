@@ -392,6 +392,15 @@ sudo cp antares/live/filesystem.manifest antares/live/filesystem.manifest
 sudo rm antares/live/filesystem.squashfs
 sudo mksquashfs chroot antares/live/filesystem.squashfs -comp xz
 ```
+
+# <p align="center">Gerando s imagem ISO
+_Criando a imagem ISO com genisoimage_
+```bash
+genisoimage \
+-D -r -V “Antares-OS” -cache-inodes -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat \
+-no-emul-boot -boot-load-size 4 -boot-info-table -o Antares-OS-13.6.0-amd64-gnome-$(date +%d-%m-%Y).iso antares/
+```
+
 # MD5sum
 _Criar o MD5sum_
 ```bash
@@ -400,14 +409,6 @@ sudo rm md5sum.txt
 find -type f -print0 | xargs -0 md5sum | grep -v isolinux/boot.cat | tee md5sum.txt
 cd
 cd Distro
-```
-
-# <p align="center">Gerando s imagem ISO
-_Criando a imagem ISO com genisoimage_
-```bash
-genisoimage \
--D -r -V “Antares-OS” -cache-inodes -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat \
--no-emul-boot -boot-load-size 4 -boot-info-table -o Antares-OS-13.6.0-amd64-gnome-$(date +%d-%m-%Y).iso antares/
 ```
 
 # Excluir diretório
