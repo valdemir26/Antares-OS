@@ -136,6 +136,12 @@ _Finalizado o chroot agora vamos criar o restante dos arquivos_
 mkdir -p $HOME/Distro/{chroot,antares/{EFI/boot,boot/grub/{theme,x86_64-efi},isolinux,live},files}
 ```
 
+## Permissão na pasta onde vão ser criados os novos arquivos
+_chmod 755 é a permissão mais usada em servidores de hospedagem de sites, ele mantém o diretório e o arquivo seguros e protegidos, impedindo que terceiros façam alterações_
+```bash
+sudo chmod -R 755 $HOME/Distro/antares/
+```
+
 ## Criando o usuário live do sistema
 _Este é o usuário padrão do sistema live_
 ```bash 
@@ -144,12 +150,6 @@ LIVE_USERNAME="antares"
 LIVE_USER_FULLNAME="Antares Live User"
 EOF
 sudo cp $HOME/Distro/files/antares.conf $HOME/Distro/chroot/etc/live/config.conf.d/antares.conf
-```
-
-## Permissão na pasta onde vão ser criados os novos arquivos
-_chmod 755 é a permissão mais usada em servidores de hospedagem de sites, ele mantém o diretório e o arquivo seguros e protegidos, impedindo que terceiros façam alterações_
-```bash
-sudo chmod -R 755 $HOME/Distro/antares/
 ```
 
 ## README.diskdefines
