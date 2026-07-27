@@ -90,7 +90,7 @@ apt update -y && apt full-upgrade -y
 ```
 
 ## Pacotes para instalação minima
-_A lista de pacotes que eu escolhi, para uma interface limpa mas fica ao critério de cada escolher seus próprios pacotes_
+_A lista de pacotes que eu escolhi, para uma interface limpa, mais fica a critério de cada escolher seus próprios pacotes_
 ```bash
 apt install -y \
 apt-transport-https build-essential btrfs-progs curl dbus-x11 dosfstools dkms rsync e2fsprogs exfatprogs \
