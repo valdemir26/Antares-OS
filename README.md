@@ -48,6 +48,11 @@ cd Distro
 sudo modprobe squashfs
 ```
 
+_Copiar a imagem baixada para o diretório de customização_
+```bash
+Antares=$(yad --file --center --separator=" " --multiple --title "Escolha a ISO para copiar"); printf "%s\n" ${Antares} [ -z "$Antares" ] && { yad --error --center --title "Copiar" --text "Operação cancelada pelo usuário" 2>/dev/null;exit;} cp $Antares $HOME/Distro/
+```
+
 ## Instala o sistema base com debootstrap
 _A ferramenta debootstrap irá selecionar os pacotes nescessários da base so sistema escolhido para chroot, é nescessário instalar a chave gpg do sistema escolhido_
 ### Exemplo 
