@@ -43,8 +43,9 @@ Para criar o diretório, podemos usar o navegador de aquivos ou simplesmente faz
 Depois que o diretório estiver criado, é só seguir o passo a passo \
 _Agora vamos criar o diretório que irão conter os arquivos nescessários para fazer o chroot_
 ```bash
-mkdir -p $HOME/Distro/chroot
+mkdir -p $HOME/Distro/{antares,chroot,mnt,squashfs}
 cd Distro
+sudo modprobe squashfs
 ```
 
 ## Instala o sistema base com debootstrap
@@ -55,7 +56,6 @@ http://deb.debian.org/debian/pool/main/d/debian-archive-keyring/
 ```bash
 sudo debootstrap \
     --arch=amd64 \
-    --variant=minbase \
     trixie \
     $HOME/Distro/chroot \
     http://deb.debian.org/debian/
