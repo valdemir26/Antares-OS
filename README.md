@@ -50,7 +50,10 @@ sudo modprobe squashfs
 
 _Copiar a imagem baixada para o diretório de customização_
 ```bash
-Antares=$(yad --file --center --separator=" " --multiple --title "Escolha a ISO para copiar"); printf "%s\n" ${Antares} [ -z "$Antares" ] && { yad --error --center --title "Copiar" --text "Operação cancelada pelo usuário" 2>/dev/null;exit;} cp $Antares $HOME/Distro/
+Antares=$(yad --file --center --separator=" " --multiple --title "Escolha a ISO para copiar");
+printf "%s\n" ${Antares}
+[ -z "$Antares" ] && { yad --error --center --title "Copiar" --text "Operação cancelada pelo usuário" 2>/dev/null;exit;}
+cp $Antares $HOME/Distro/
 ```
 
 _Copiar a imagem baixada para o diretório de customização_
