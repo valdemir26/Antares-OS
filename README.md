@@ -53,6 +53,14 @@ _Copiar a imagem baixada para o diretório de customização_
 Antares=$(yad --file --center --separator=" " --multiple --title "Escolha a ISO para copiar"); printf "%s\n" ${Antares} [ -z "$Antares" ] && { yad --error --center --title "Copiar" --text "Operação cancelada pelo usuário" 2>/dev/null;exit;} cp $Antares $HOME/Distro/
 ```
 
+_Copiar a imagem baixada para o diretório de customização_
+```bash
+sudo mount -o loop *.iso mnt
+rsync --exclude=/live/filessystem.squashfs -a mnt/ antares
+sudo mount -t squashfs -o loop mnt/live/filesystem.squashfs squashfs
+sudo cp -a squashfs/* chroot/
+```
+
 ## Instala o sistema base com debootstrap
 _A ferramenta debootstrap irá selecionar os pacotes nescessários da base so sistema escolhido para chroot, é nescessário instalar a chave gpg do sistema escolhido_
 ### Exemplo 
