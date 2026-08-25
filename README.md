@@ -21,6 +21,7 @@
 # <p align="center">Crie seu linux do zero com debootstrap
 
 ## Como funciona
+---
 Optamos por utilizar um processo manual de customização do Linux, utilizando o squashfs, genisoimage e chroot, é simples, você usa a própria distribuição instalada como base, sem aplicativos extras, que as vezes é incompatível dependendo da distribuição.
 
 ## Preparando o ambiente
