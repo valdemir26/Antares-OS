@@ -422,8 +422,10 @@ cd Distro
 _Criando a imagem ISO com genisoimage_
 ```bash
 genisoimage \
--D -r -V “Antares-OS” -cache-inodes -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat \
--no-emul-boot -boot-load-size 4 -boot-info-table -o Antares-OS-13.6.0-amd64-gnome-$(date +%d-%m-%Y).iso antares/
+-D -r -V “Antares-OS” -cache-inodes -J -l -b 
+isolinux/isolinux.bin -c isolinux/boot.cat \
+-no-emul-boot -boot-load-size 4 -boot-info-table \
+-o Antares-OS-13.6.0-amd64-gnome-$(date +%d-%m-%Y).iso antares/
 ```
 
 # Excluir diretório
