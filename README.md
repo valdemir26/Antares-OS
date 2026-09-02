@@ -83,8 +83,9 @@ _Copia os arquivos /resolv.conf /hosts da maquina local e monta /dev /proc /sys 
 sudo cp /etc/resolv.conf chroot/etc/
 sudo cp /etc/hosts chroot/etc/
 sudo mount --bind /dev chroot/dev
-sudo mount --bind /proc chroot/proc
+sudo mount --bind /run chroot/run
 sudo mount --bind /sys chroot/sys
+sudo mount --bind /proc chroot/proc
 sudo chroot chroot
 ```
 
