@@ -144,8 +144,9 @@ exit
 _Desmonta o /dev /proc /sys que também foram montados no chroot_
 ```bash   
 sudo umount -lf chroot/dev
-sudo umount -lf chroot/proc
+sudo umount -lf chroot/run
 sudo umount -lf chroot/sys
+sudo umount -lf chroot/proc
 ```
 
 _Finalizado o chroot agora vamos criar o restante dos arquivos_
